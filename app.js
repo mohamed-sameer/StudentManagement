@@ -11,10 +11,13 @@ app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
 // connect to DB
-mongoose.connect('mongodb://localhost:27017/studentManger', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  process.env.MONGO_URI || 'mongodb://localhost:27017/studentManger',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 //use router middleware
 app.use(router);
