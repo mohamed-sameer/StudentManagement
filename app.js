@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const router = require('./router/student.route');
 const app = express();
-const port = 3000;
 
 app.use(methodOverride('_method', { methods: ['POST', 'GET'] }));
 
@@ -19,4 +18,7 @@ mongoose.connect('mongodb://localhost:27017/studentManger', {
 //use router middleware
 app.use(router);
 
-app.listen(port, () => console.log('Server listening on port ' + port));
+app.set('port', process.env.PORT || 3000);
+const server = app.listen(app.get('port'), () => {
+  console.log(`Server running at http://localhost:${app.get('port')}`);
+});
