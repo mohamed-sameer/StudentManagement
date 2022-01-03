@@ -17,4 +17,4 @@ its a CRUD app using node.js MVC pattern
 - open your browser and go to this link `http://localhost:3000`
 
 #### Futuure development
-adding authenticationa dn authorization
+adding authenticationa and authorization
